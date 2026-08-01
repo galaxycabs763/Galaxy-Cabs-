@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tour Packages</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+  <header>
+
+
+<div class="menu-btn" onclick="toggleMenu()">
+☰
+</div>
+
+<nav id="menu">
+    <a href="index.html">Home</a>
+    <a href="vehicles.html">Vehicles</a>
+    <a href="tour-packages.html">Tour Packages</a>
+    <a href="booking.html">Booking</a>
+    <a href="fare.html">Fare</a>
+    <a href="about.html">About Us</a>
+    <a href="contact.html">Contact</a>
+</nav>
+
+</header>
+    <!-- तुझा Header/Menu -->
+</header>
+<section class="page-title">
+    <h1>Tour Packages</h1>
+    <p>Explore Our Best Tour Packages</p>
+</section>
+
+<script src="script.js"></script>
+<div class="search-box">
+    <input type="text" id="searchPackage"
+           placeholder="🔍 Search Tour Package..."
+           onkeyup="searchPackages()">
+</div>
+<!-- 1. Goa Tour -->
+<div class="package-card">
+    <img src="goa.jpg" alt="Goa Tour">
+    <h2>🌴 Goa Tour </h2>
+    <p>📍 Kolhapur → Goa</p>
+    <p>⏳ 2 Days / 1 Nights</p>
+    <label>Select Vehicle</label>
+
+<select class="vehicle-select" onchange="updatePrice(this,'Goa Tour')">
+    <option value="">Select Vehicle</option>
+    <option value="Swift Dzire">🚗 Swift Dzire</option>
+    <option value="Ertiga">🚙 Ertiga</option>
+    <option value="Toyota Innova">🚐 Toyota Innova</option>
+    <option value="Toyota Innova Crysta">🚘 Toyota Innova Crysta</option>
+</select>
+
+<h3 class="price">Estimated Price : --</h3>
+<br>
+    <p>•Toll, Parking & Driver Allowance Extra </p>
+<button class="book-btn" onclick="bookTour('Goa Tour')">
+    Book Now
+</button>
+</div>
+
+<!-- 2. Mahabaleshwar Tour -->
+<div class="package-card">
+    <img src="mahabaleshwar.jpg" alt="Mahabaleshwar Tour">
+    <h2>🏔️ Mahabaleshwar Tour</h2>
+    <p>📍 Kolhapur → Mahabaleshwar</p>
+    <p>⏳ 2 Days / 1 Night</p>
+    <label>Select Vehicle</label>
+
+<select class="vehicle-select" onchange="updatePrice(this,'Mahabaleshwar Tour')">
+    <option value="">Select Vehicle</option>
+    <option value="Swift Dzire">🚗 Swift Dzire</option>
+    <option value="Ertiga">🚙 Ertiga</option>
+    <option value="Toyota Innova">🚐 Toyota Innova</option>
+    <option value="Toyota Innova Crysta">🚘 Toyota Innova Crysta</option>
+</select>
+
+<h3 class="price">Estimated Price : --</h3>
+<br>
+    <p>•Toll, Parking & Driver Allowance Extra </p>
+<button class="book-btn" onclick="bookTour('Mahabaleshwar Tour')">
+    Book Now
+</button>
+</div>
+
+<!-- . Pandharpur Akkalkot tuljapur  Darshan -->
+<div class="package-card">
+    <img src="Akkalkot.jpg" alt="Pandharpur Akkalkot Tuljapur">
+    <h2>🛕 Pandharpur Akkalkot Tuljapur</h2>
+    <p>📍 Kolhapur →  Pandharpur  → Akkalkot  → Tuljapur</p>
+    <p>⏳ 2 Day</p>
+    <label>Select Vehicle</label>
+
+<select class="vehicle-select" onchange="updatePrice(this,'Pandharpur Akkalkot Tuljapur')">
+    <option value="">Select Vehicle</option>
+    <option value="Swift Dzire">🚗 Swift Dzire</option>
+    <option value="Ertiga">🚙 Ertiga</option>
+    <option value="Toyota Innova">🚐 Toyota Innova</option>
+    <option value="Toyota Innova Crysta">🚘 Toyota Innova Crysta</option>
+</select>
+
+<h3 class="price">Estimated Price : --</h3>
+<br>
+    <p>•Toll, Parking & Driver Allowance Extra </p>
+<button class="book-btn" onclick="bookTour('Pandharpur Akkalkot Tuljapur')">
+    Book Now
+</button>
+</div>
+
+
+<!-- 3. Ganpatipule Tour -->
+<div class="package-card">
+    <img src="ganpatipule.jpg" alt="Ganpatipule Tour">
+    <h2>🌊 Ganpatipule Tour</h2>
+    <p>📍 Kolhapur → Marleshwar →  Ganpatipule→ Pavas</p><br>
+    <p>⏳ 2 Days / 1 Night</p>
+    <label>Select Vehicle</label>
+
+<select class="vehicle-select" onchange="updatePrice(this,'Ganpatipule Tour')">
+    <option value="">Select Vehicle</option>
+    <option value="Swift Dzire">🚗 Swift Dzire</option>
+    <option value="Ertiga">🚙 Ertiga</option>
+    <option value="Toyota Innova">🚐 Toyota Innova</option>
+    <option value="Toyota Innova Crysta">🚘 Toyota Innova Crysta</option>
+</select>
+
+<h3 class="price">Estimated Price : --</h3>
+<br>
+    <p>•Toll, Parking & Driver Allowance Extra </p>
+<button class="book-btn" onclick="bookTour('Ganpatipule Tour')">
+    Book Now
+</button>
+</div>
+
+<!-- 4. Tarkarli Tour -->
+<div class="package-card">
+    <img src="tarkarli.jpg" alt="Tarkarli Tour">
+    <h2>🏖️ Tarkarli Tour</h2>
+    <p>📍 Kolhapur → Tarkarli</p>
+    <p>⏳ 3 Days / 2 Nights</p>
+    <label>Select Vehicle</label>
+
+<select class="vehicle-select" onchange="updatePrice(this,'Tarkarli Tour')">
+    <option value="">Select Vehicle</option>
+    <option value="Swift Dzire">🚗 Swift Dzire</option>
+    <option value="Ertiga">🚙 Ertiga</option>
+    <option value="Toyota Innova">🚐 Toyota Innova</option>
+    <option value="Toyota Innova Crysta">🚘 Toyota Innova Crysta</option>
+</select>
+
+<h3 class="price">Estimated Price : --</h3>
+<br>
+    <p>•Toll, Parking & Driver Allowance Extra </p>
+<button class="book-btn" onclick="bookTour('Tarkarli Tour')">
+    Book Now
+</button>
+</div>
+
+<!-- 5. Amboli Tour -->
+<div class="package-card">
+    <img src="amboli.jpg" alt="Amboli Tour">
+    <h2>🌿 Amboli Tour</h2>
+    <p>📍 Kolhapur → Amboli</p>
+    <p>⏳ 1 Days </p>
+    <label>Select Vehicle</label>
+
+<select class="vehicle-select" onchange="updatePrice(this,'Amboli Tour')">
+    <option value="">Select Vehicle</option>
+    <option value="Swift Dzire">🚗 Swift Dzire</option>
+    <option value="Ertiga">🚙 Ertiga</option>
+    <option value="Toyota Innova">🚐 Toyota Innova</option>
+    <option value="Toyota Innova Crysta">🚘 Toyota Innova Crysta</option>
+</select>
+
+<h3 class="price">Estimated Price : --</h3>
+<br>
+    <p>•Toll, Parking & Driver Allowance Extra </p>
+<button class="book-btn" onclick="bookTour('Amboli Tour')">
+    Book Now
+</button>
+</div>
+
+<!-- 6. Kolhapur Darshan -->
+<div class="package-card">
+    <img src="kolhapur.jpg" alt="Kolhapur Darshan">
+    <h2>🛕 Kolhapur Darshan</h2>
+    <p>📍 Kolhapur City Tour</p>
+    <p>⏳ 1 Day</p>
+    <label>Select Vehicle</label>
+
+<select class="vehicle-select" onchange="updatePrice(this,'Kolhapur Darshan')">
+    <option value="">Select Vehicle</option>
+    <option value="Swift Dzire">🚗 Swift Dzire</option>
+    <option value="Ertiga">🚙 Ertiga</option>
+    <option value="Toyota Innova">🚐 Toyota Innova</option>
+    <option value="Toyota Innova Crysta">🚘 Toyota Innova Crysta</option>
+</select>
+
+<h3 class="price">Estimated Price : --</h3>
+<br>
+    <p>•Toll, Parking & Driver Allowance Extra </p>
+<button class="book-btn" onclick="bookTour('Kolhapur Darshan')">
+    Book Now
+</button>
+</div>
+
+<!-- 7. Shirdi Tour -->
+<div class="package-card">
+    <img src="shirdi.jpg" alt="Shirdi Tour">
+    <h2>🙏 Shirdi Tour</h2>
+    <p>📍 Kolhapur → Shirdi</p>
+    <p>⏳ 2 Days / 1 Night</p>
+    <label>Select Vehicle</label>
+
+<select class="vehicle-select" onchange="updatePrice(this,'Shirdi Tour')">
+    <option value="">Select Vehicle</option>
+    <option value="Swift Dzire">🚗 Swift Dzire</option>
+    <option value="Ertiga">🚙 Ertiga</option>
+    <option value="Toyota Innova">🚐 Toyota Innova</option>
+    <option value="Toyota Innova Crysta">🚘 Toyota Innova Crysta</option>
+</select>
+
+<h3 class="price">Estimated Price : --</h3>
+<br>
+    <p>•Toll, Parking & Driver Allowance Extra </p>
+<button class="book-btn" onclick="bookTour('Shirdi Tour')">
+    Book Now
+</button>
+</div>
+
+<!-- 8. Pandharpur Tour -->
+<div class="package-card">
+    <img src="pandharpur.jpg" alt="Pandharpur Tour">
+    <h2>🛕 Pandharpur Tour</h2>
+    <p>📍 Kolhapur → Pandharpur</p>
+    <p>⏳ 1 Day</p>
+    <label>Select Vehicle</label>
+
+<select class="vehicle-select" onchange="updatePrice(this,'Pandharpur Tour')">
+    <option value="">Select Vehicle</option>
+    <option value="Swift Dzire">🚗 Swift Dzire</option>
+    <option value="Ertiga">🚙 Ertiga</option>
+    <option value="Toyota Innova">🚐 Toyota Innova</option>
+    <option value="Toyota Innova Crysta">🚘 Toyota Innova Crysta</option>
+</select>
+
+<h3 class="price">Estimated Price : --</h3>
+<br>
+    <p>•Toll, Parking & Driver Allowance Extra </p>
+<button class="book-btn" onclick="bookTour('Pandharpur Tour')">
+    Book Now
+</button>
+</div>
+
+<!-- 9. Lonavala Tour -->
+<div class="package-card">
+    <img src="lonavala.jpg" alt="Lonavala Tour">
+    <h2>🌄 Lonavala Tour</h2>
+    <p>📍 Kolhapur → Lonavala</p>
+    <p>⏳ 2 Days / 1 Night</p>
+    <label>Select Vehicle</label>
+
+<select class="vehicle-select" onchange="updatePrice(this,'Lonavala Tour')">
+    <option value="">Select Vehicle</option>
+    <option value="Swift Dzire">🚗 Swift Dzire</option>
+    <option value="Ertiga">🚙 Ertiga</option>
+    <option value="Toyota Innova">🚐 Toyota Innova</option>
+    <option value="Toyota Innova Crysta">🚘 Toyota Innova Crysta</option>
+</select>
+
+<h3 class="price">Estimated Price : --</h3>
+<br>
+    <p>•Toll, Parking & Driver Allowance Extra </p>
+<button class="book-btn" onclick="bookTour('Lonavala Tour')">
+    Book Now
+</button>
+</div>
+
+<!-- 10. Mumbai Tour -->
+<div class="package-card">
+    <img src="mumbai.jpg" alt="Mumbai Tour">
+    <h2>🌆 Mumbai Tour</h2>
+    <p>📍 Kolhapur → Mumbai</p>
+    <p>⏳ 2 Days / 1 Night</p>
+    <label>Select Vehicle</label>
+
+<select class="vehicle-select" onchange="updatePrice(this,'Mumbai Tour')">
+    <option value="">Select Vehicle</option>
+    <option value="Swift Dzire">🚗 Swift Dzire</option>
+    <option value="Ertiga">🚙 Ertiga</option>
+    <option value="Toyota Innova">🚐 Toyota Innova</option>
+    <option value="Toyota Innova Crysta">🚘 Toyota Innova Crysta</option>
+</select>
+
+<h3 class="price">Estimated Price : --</h3>
+<br>
+    <p>•Toll, Parking & Driver Allowance Extra </p>
+<button class="book-btn" onclick="bookTour('Mumbai Tour')">
+    Book Now
+</button>
+</div>
+
+<!-- 11. Ajanta–Ellora -->
+<div class="package-card">
+    <img src="ajanta.jpg" alt="Ajanta Ellora">
+    <h2>🏰 Ajanta–Ellora</h2>
+    <p>📍 Kolhapur → Aurangabad</p>
+    <p>⏳ 3 Days / 2 Nights</p>
+    <label>Select Vehicle</label>
+
+<select class="vehicle-select" onchange="updatePrice(this,'Ajanta Ellora Tour')">
+    <option value="">Select Vehicle</option>
+    <option value="Swift Dzire">🚗 Swift Dzire</option>
+    <option value="Ertiga">🚙 Ertiga</option>
+    <option value="Toyota Innova">🚐 Toyota Innova</option>
+    <option value="Toyota Innova Crysta">🚘 Toyota Innova Crysta</option>
+</select>
+
+<h3 class="price">Estimated Price : --</h3>
+<br>
+    <p>•Toll, Parking & Driver Allowance Extra </p>
+<button class="book-btn" onclick="bookTour('Ajanta Ellora Tour')">
+    Book Now
+</button>
+</div>
+
+<!-- 12. Tadoba Safari -->
+<div class="package-card">
+    <img src="tadoba.jpg" alt="Tadoba Safari">
+    <h2>🐅 Tadoba Safari</h2>
+    <p>📍 Kolhapur → Tadoba</p>
+    <p>⏳ 3 Days / 2 Nights</p>
+    <label>Select Vehicle</label>
+
+<select class="vehicle-select" onchange="updatePrice(this,'Tadoba Safari')">
+    <option value="">Select Vehicle</option>
+    <option value="Swift Dzire">🚗 Swift Dzire</option>
+    <option value="Ertiga">🚙 Ertiga</option>
+    <option value="Toyota Innova">🚐 Toyota Innova</option>
+    <option value="Toyota Innova Crysta">🚘 Toyota Innova Crysta</option>
+</select>
+
+<h3 class="price">Estimated Price : --</h3>
+<br>
+    <p>•Toll, Parking & Driver Allowance Extra </p>
+<button class="book-btn" onclick="bookTour('Tadoba Safari')">
+    Book Now
+</button>
+</div>
+
+<!-- 13. Alibaug Tour -->
+<div class="package-card">
+    <img src="alibaug.jpg" alt="Alibaug Tour">
+    <h2>🌊 Alibaug Tour</h2>
+    <p>📍 Kolhapur → Alibaug</p>
+    <p>⏳ 2 Days / 1 Night</p>
+    <label>Select Vehicle</label>
+
+<select class="vehicle-select" onchange="updatePrice(this,'Alibaug Tour')">
+    <option value="">Select Vehicle</option>
+    <option value="Swift Dzire">🚗 Swift Dzire</option>
+    <option value="Ertiga">🚙 Ertiga</option>
+    <option value="Toyota Innova">🚐 Toyota Innova</option>
+    <option value="Toyota Innova Crysta">🚘 Toyota Innova Crysta</option>
+</select>
+
+<h3 class="price">Estimated Price : --</h3>
+<br>
+    <p>•Toll, Parking & Driver Allowance Extra </p>
+<button class="book-btn" onclick="bookTour('Alibaug Tour')">
+    Book Now
+</button>
+</div>
+
+<!-- 14. Raigad Fort -->
+<div class="package-card">
+    <img src="raigad.jpg" alt="Raigad Fort">
+    <h2>🏰 Raigad Fort</h2>
+    <p>📍 Kolhapur → Raigad</p>
+    <p>⏳ 2 Days / 1 Night</p>
+    <label>Select Vehicle</label>
+
+<select class="vehicle-select" onchange="updatePrice(this,'Raigad Fort Tour')">
+    <option value="">Select Vehicle</option>
+    <option value="Swift Dzire">🚗 Swift Dzire</option>
+    <option value="Ertiga">🚙 Ertiga</option>
+    <option value="Toyota Innova">🚐 Toyota Innova</option>
+    <option value="Toyota Innova Crysta">🚘 Toyota Innova Crysta</option>
+</select>
+
+<h3 class="price">Estimated Price : --</h3>
+<br>
+    <p>•Toll, Parking & Driver Allowance Extra </p>
+<button class="book-btn" onclick="bookTour('Raigad Fort Tour')">
+    Book Now
+</button>
+</div>
+
+<!-- 15. Matheran Tour -->
+<div class="package-card">
+    <img src="matheran.jpg" alt="Matheran Tour">
+    <h2>🌄 Matheran Tour</h2>
+    <p>📍 Kolhapur → Matheran</p>
+    <p>⏳ 2 Days / 1 Night</p>
+    <label>Select Vehicle</label>
+
+<select class="vehicle-select" onchange="updatePrice(this,'Matheran Tour')">
+    <option value="">Select Vehicle</option>
+    <option value="Swift Dzire">🚗 Swift Dzire</option>
+    <option value="Ertiga">🚙 Ertiga</option>
+    <option value="Toyota Innova">🚐 Toyota Innova</option>
+    <option value="Toyota Innova Crysta">🚘 Toyota Innova Crysta</option>
+</select>
+
+<h3 class="price">Estimated Price : --</h3>
+<br>
+    <p>•Toll, Parking & Driver Allowance Extra </p>
+<button class="book-btn" onclick="bookTour('Matheran Tour')">
+    Book Now
+</button>
+</div>
+
+</body>
+</html>

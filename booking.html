@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book Your Ride</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+  <div class="menu-btn" onclick="toggleMenu()">
+    ☰
+</div>
+<h2>Galaxy Cabs</h2>
+
+<nav id="menu">
+    <a href="index.html">Home</a>
+    <a href="vehicles.html">Vehicles</a>
+    <a href="tour-packages.html">Tour Packages</a>
+    <a href="booking.html">Booking</a>
+    <a href="fare.html">Fare</a>
+    <a href="about.html">About Us</a>
+    <a href="contact.html">Contact</a>
+</nav>
+</header>
+
+<section id="booking">
+
+<h2>Book Your Ride</h2>
+
+<form>
+<label id="packageLabel" style="display:none;">Tour Package</label>
+<input type="text" id="tourPackage" readonly style="display:none;">
+
+<label id="vehicleLabel" style="display:none;">Vehicle</label>
+<input type="text" id="vehicleName" readonly style="display:none;">
+
+<label id="priceLabel" style="display:none;">Estimated Price</label>
+<input type="text" id="tourPrice" readonly style="display:none;">
+
+<input type="text" placeholder="Full Name" required>
+
+<input type="tel" placeholder="Mobile Number" required>
+<div id="normalBookingFields">
+<input type="text" placeholder="Pickup Location" required>
+
+<input type="text" placeholder="Drop Location" required>
+
+
+<select name="travel_type" required>
+    <option value="">Select Travel Type</option>
+    <option value="One Way">🚖 One Way</option>
+    <option value="Round Trip">🔁 Round Trip</option>
+    <option value="Outstation">🌄 Outstation</option>
+    <option value="Airport Pickup">✈️ Airport Pickup</option>
+    <option value="Airport Drop">🛬 Airport Drop</option>
+    <option value="Local Rental">🏙️ Local Rental</option>
+</select>
+</div>
+
+<label>Journey Date</label>
+<input type="date" required>
+
+<label>Journey Time</label>
+<input type="time" required>
+
+<div id="vehicleSelectBox">
+<select>
+    <option value="">Choose Your Vehicles</option>
+    <option>Swift / Aura</option>
+    <option>Ertiga</option>
+    <option>Innova</option>
+    <option>Innova Crysta</option>
+</select>
+</div>
+
+
+<button type="submit">Book Now</button>
+
+</form>
+
+</section>
+
+<footer>
+<p>📞 8082011814</p>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
