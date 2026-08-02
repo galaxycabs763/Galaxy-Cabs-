@@ -295,6 +295,60 @@ Book on WhatsApp
 
 </div>
 </div>
+<div class="rating-summary">
+    <div class="total-rating">
+        <span id="averageRating">0.0</span>
+        <span class="rating-out-of">/ 5</span>
+    </div>
+
+    <div class="total-stars" id="averageStars">
+        ⭐⭐⭐⭐⭐
+    </div>
+
+    <p>
+        Based on <span id="totalReviews">0</span> customer reviews
+    </p>
+</div>
+<section class="feedback-section">
+  <h2>Customer Reviews</h2>
+  <p>Share your experience with Galaxy Cabs</p>
+
+  <form id="feedbackForm">
+    
+    <input
+      type="text"
+      id="feedbackName"
+      placeholder="Your Name"
+      minlength="2"
+      maxlength="50"
+      required
+    >
+
+    <select id="feedbackRating" required>
+      <option value="">Select Rating</option>
+      <option value="5">⭐⭐⭐⭐⭐ Excellent</option>
+      <option value="4">⭐⭐⭐⭐ Very Good</option>
+      <option value="3">⭐⭐⭐ Good</option>
+      <option value="2">⭐⭐ Average</option>
+      <option value="1">⭐ Poor</option>
+    </select>
+
+    <textarea
+      id="feedbackMessage"
+      placeholder="Write your feedback..."
+      maxlength="500"
+      required
+    ></textarea>
+
+    <button type="submit">Submit Review</button>
+
+    <p id="feedbackStatus"></p>
+
+  </form>
+  <div id="reviewsList">
+  <!-- Firebase मधले reviews इथे दिसतील -->
+</div>
+</section>
 
 <footer>
 
@@ -316,6 +370,155 @@ function clearBookingData() {
 <a href="https://wa.me/918082011814" class="whatsapp" target="_blank">
     <i class="fa-brands fa-whatsapp"></i>
 </a>
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.17.0/firebase-app.js";
+  import {
+    getFirestore,
+    collection,
+    addDoc,
+    serverTimestamp,
+    getDocs,
+    query,
+    orderBy,
+    deleteDoc,
+    doc
+} from "https://www.gstatic.com/firebasejs/12.17.0/firebase-firestore.js";
 
+  const firebaseConfig = {
+    apiKey: "AIzaSyAAokZmcox8bt3pWdPLmprQX7GNtLudLUI",
+    authDomain: "galaxy-cabs.firebaseapp.com",
+    projectId: "galaxy-cabs",
+    storageBucket: "galaxy-cabs.firebasestorage.app",
+    messagingSenderId: "237421597114",
+    appId: "1:237421597114:web:1114799d83b1f4dfa78d83"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+  const feedbackForm = document.getElementById("feedbackForm");
+const feedbackStatus = document.getElementById("feedbackStatus");
+
+feedbackForm.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const name = document.getElementById("feedbackName").value.trim();
+  const rating = Number(document.getElementById("feedbackRating").value);
+  const feedback = document.getElementById("feedbackMessage").value.trim();
+
+  try {
+    const docRef = await addDoc(collection(db, "feedbacks"), {
+    name: name,
+    rating: rating,
+    feedback: feedback,
+    createdAt: serverTimestamp()
+});
+
+let myReviews = JSON.parse(localStorage.getItem("myReviews")) || [];
+myReviews.push(docRef.id);
+localStorage.setItem("myReviews", JSON.stringify(myReviews));
+
+    feedbackStatus.textContent = "✅ Thank you! Your review has been submitted.";
+    feedbackForm.reset();
+    await loadReviews();
+    
+  } catch (error) {
+    console.error("Feedback error:", error);
+    feedbackStatus.textContent = "❌ Review submit झाला नाही. Please try again.";
+  }
+});
+
+async function loadReviews() {
+  const reviewsList = document.getElementById("reviewsList");
+
+  try {
+    const q = query(
+      collection(db, "feedbacks"),
+      orderBy("createdAt", "desc")
+    );
+
+    const snapshot = await getDocs(q);
+
+    reviewsList.innerHTML = "";
+    let totalRating = 0;
+let reviewCount = 0;
+
+    snapshot.forEach((reviewDoc) => {
+    const data = reviewDoc.data();
+    totalRating += Number(data.rating);
+reviewCount++;
+      const reviewCard = document.createElement("div");
+      reviewCard.className = "review-card";
+
+      const name = document.createElement("h3");
+      name.textContent = data.name;
+
+      const stars = document.createElement("div");
+      stars.className = "review-stars";
+      stars.textContent = "⭐".repeat(data.rating);
+
+      const message = document.createElement("p");
+      message.textContent = data.feedback;
+
+      reviewCard.append(name, stars, message);
+      const myReviews = JSON.parse(localStorage.getItem("myReviews")) || [];
+
+if (myReviews.includes(reviewDoc.id)) {
+
+    const deleteBtn = document.createElement("button");
+    deleteBtn.textContent = "🗑️ Delete Review";
+    deleteBtn.className = "delete-review-btn";
+
+    deleteBtn.addEventListener("click", async () => {
+
+        if (confirm("Are you sure you want to delete your review?")) {
+
+            try {
+
+                await deleteDoc(
+                    doc(db, "feedbacks", reviewDoc.id)
+                );
+
+                const updatedReviews = myReviews.filter(
+                    id => id !== reviewDoc.id
+                );
+
+                localStorage.setItem(
+                    "myReviews",
+                    JSON.stringify(updatedReviews)
+                );
+
+                await loadReviews();
+
+            } catch (error) {
+                console.error("Delete error:", error);
+                alert("Review delete झाला नाही.");
+            }
+        }
+    });
+
+    reviewCard.appendChild(deleteBtn);
+}
+      reviewsList.appendChild(reviewCard);
+    });
+    const average = reviewCount > 0
+    ? (totalRating / reviewCount).toFixed(1)
+    : "0.0";
+
+document.getElementById("averageRating").textContent = average;
+document.getElementById("totalReviews").textContent = reviewCount;
+
+const roundedRating = Math.round(Number(average));
+
+document.getElementById("averageStars").textContent =
+    "⭐".repeat(roundedRating) + "☆".repeat(5 - roundedRating);
+
+  } catch (error) {
+    console.error("Reviews load error:", error);
+  }
+}
+
+loadReviews();
+
+</script>
 </body>
 </html>
