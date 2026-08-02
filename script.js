@@ -293,3 +293,211 @@ function searchPackages() {
         }
     });
 }
+
+function openServiceForm(id){
+
+    document.getElementById(id).style.display = "flex";
+
+    document.body.style.overflow = "hidden";
+}
+
+
+function closeServiceForm(id){
+
+    document.getElementById(id).style.display = "none";
+
+    document.body.style.overflow = "auto";
+}
+
+
+function openWhatsApp(message){
+
+    window.open(
+        "https://wa.me/918082011814?text=" +
+        encodeURIComponent(message),
+        "_blank"
+    );
+}
+
+
+function checkMobile(mobile){
+
+    if(!/^[0-9]{10}$/.test(mobile)){
+
+        alert("Please enter valid 10-digit mobile number.");
+
+        return false;
+    }
+
+    return true;
+}
+
+
+// ONE WAY
+
+function sendServiceBooking(event,type,form){
+
+    event.preventDefault();
+
+    const name = form.name.value;
+    const mobile = form.mobile.value;
+    const pickup = form.pickup.value;
+    const drop = form.drop.value;
+    const date = form.date.value;
+    const time = form.time.value;
+    const vehicle = form.vehicle.value;
+
+    if(!checkMobile(mobile)) return;
+
+
+    const message =
+`🚖 NEW ONE WAY BOOKING
+
+Name: ${name}
+Mobile: ${mobile}
+
+Pickup: ${pickup}
+Drop: ${drop}
+
+Date: ${date}
+Time: ${time}
+
+Vehicle: ${vehicle}
+
+Travel Type: One Way`;
+
+
+    openWhatsApp(message);
+}
+
+
+// ROUND TRIP
+
+function sendRoundTrip(event,form){
+
+    event.preventDefault();
+
+    const name = form.name.value;
+    const mobile = form.mobile.value;
+    const pickup = form.pickup.value;
+    const drop = form.drop.value;
+
+    const date = form.date.value;
+    const returnDate = form.returnDate.value;
+
+    const time = form.time.value;
+    const vehicle = form.vehicle.value;
+
+
+    if(!checkMobile(mobile)) return;
+
+
+    const message =
+`🔁 NEW ROUND TRIP BOOKING
+
+Name: ${name}
+Mobile: ${mobile}
+
+Pickup: ${pickup}
+Destination: ${drop}
+
+Going Date: ${date}
+Return Date: ${returnDate}
+
+Pickup Time: ${time}
+
+Vehicle: ${vehicle}
+
+Travel Type: Round Trip`;
+
+
+    openWhatsApp(message);
+}
+
+
+// AIRPORT PICKUP
+
+function sendAirportPickup(event,form){
+
+    event.preventDefault();
+
+    const name = form.name.value;
+    const mobile = form.mobile.value;
+
+    const airport = form.airport.value;
+    const drop = form.drop.value;
+
+    const flight = form.flight.value || "Not Provided";
+
+    const date = form.date.value;
+    const time = form.time.value;
+
+    const vehicle = form.vehicle.value;
+
+
+    if(!checkMobile(mobile)) return;
+
+
+    const message =
+`✈️ NEW AIRPORT PICKUP BOOKING
+
+Name: ${name}
+Mobile: ${mobile}
+
+Airport: ${airport}
+Drop Location: ${drop}
+
+Flight Number: ${flight}
+
+Pickup Date: ${date}
+Pickup Time: ${time}
+
+Vehicle: ${vehicle}
+
+Travel Type: Airport Pickup`;
+
+
+    openWhatsApp(message);
+}
+
+
+// AIRPORT DROP
+
+function sendAirportDrop(event,form){
+
+    event.preventDefault();
+
+    const name = form.name.value;
+    const mobile = form.mobile.value;
+
+    const pickup = form.pickup.value;
+    const airport = form.airport.value;
+
+    const date = form.date.value;
+    const time = form.time.value;
+
+    const vehicle = form.vehicle.value;
+
+
+    if(!checkMobile(mobile)) return;
+
+
+    const message =
+`🛬 NEW AIRPORT DROP BOOKING
+
+Name: ${name}
+Mobile: ${mobile}
+
+Pickup: ${pickup}
+Airport: ${airport}
+
+Date: ${date}
+Pickup Time: ${time}
+
+Vehicle: ${vehicle}
+
+Travel Type: Airport Drop`;
+
+
+    openWhatsApp(message);
+}

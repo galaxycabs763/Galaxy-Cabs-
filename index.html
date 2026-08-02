@@ -57,19 +57,24 @@
 
 <h2>Our Services</h2>
 
-<div class="box">
-<i class="fa-solid fa-car"></i>
-<h3>One Way</h3>
+<div class="box" onclick="openServiceForm('oneway')">
+    <i class="fa-solid fa-car"></i>
+    <h3>One Way</h3>
 </div>
 
-<div class="box">
-<i class="fa-solid fa-route"></i>
-<h3>Round Trip</h3>
+<div class="box" onclick="openServiceForm('roundtrip')">
+    <i class="fa-solid fa-route"></i>
+    <h3>Round Trip</h3>
 </div>
 
-<div class="box">
-<i class="fa-solid fa-plane"></i>
-<h3>Airport Pickup/Drop</h3>
+<div class="box" onclick="openServiceForm('airportpickup')">
+    <i class="fa-solid fa-plane-arrival"></i>
+    <h3>Airport Pickup</h3>
+</div>
+
+<div class="box" onclick="openServiceForm('airportdrop')">
+    <i class="fa-solid fa-plane-departure"></i>
+    <h3>Airport Drop</h3>
 </div>
 
 <div class="box" onclick="window.location.href='tour-packages.html'">
@@ -79,50 +84,217 @@
 
 </section>
 
+<!-- ONE WAY FORM -->
 
-<section id="booking">
+<div id="oneway" class="service-form">
 
-<h2>Book Your Ride</h2>
+<div class="form-content">
 
-<form>
+<span class="close-form" onclick="closeServiceForm('oneway')">
+&times;
+</span>
 
-<input type="text" placeholder="Full Name" required>
+<h2>🚖 One Way Booking</h2>
 
-<input type="tel" placeholder="Mobile Number" required>
+<form onsubmit="sendServiceBooking(event,'One Way',this)">
 
-<input type="text" placeholder="Pickup Location" required>
+<input type="text" name="name"
+placeholder="Full Name" required>
 
-<input type="text" placeholder="Drop Location" required>
+<input type="tel" name="mobile"
+placeholder="Mobile Number"
+maxlength="10" required>
 
+<input type="text" name="pickup"
+placeholder="Pickup Location" required>
 
-<select name="travel_type" required>
-    <option value="">Select Travel Type</option>
-    <option value="One Way">🚖 One Way</option>
-    <option value="Round Trip">🔁 Round Trip</option>
-    <option value="Outstation">🌄 Outstation</option>
-    <option value="Airport Pickup">✈️ Airport Pickup</option>
-    <option value="Airport Drop">🛬 Airport Drop</option>
-    <option value="Local Rental">🏙️ Local Rental</option>
-</select>
+<input type="text" name="drop"
+placeholder="Drop Location" required>
 
 <label>Journey Date</label>
-<input type="date" required>
+<input type="date" name="date" required>
 
 <label>Journey Time</label>
-<input type="time" required>
+<input type="time" name="time" required>
 
-<select>
-    <option value="">Choose Your Vehicles</option>
-    <option>Swift / Aura</option>
-    <option>Ertiga</option>
+<select name="vehicle" required>
+<option value="">Choose Vehicle</option>
+<option>Swift / Aura</option>
+<option>Ertiga</option>
 <option>Innova</option>
 <option>Innova Crysta</option>
 </select>
-<button type="submit">Book Now</button>
+
+<button type="submit">
+Book on WhatsApp
+</button>
 
 </form>
 
-</section>
+</div>
+</div>
+
+
+<!-- ROUND TRIP FORM -->
+
+<div id="roundtrip" class="service-form">
+
+<div class="form-content">
+
+<span class="close-form"
+onclick="closeServiceForm('roundtrip')">
+&times;
+</span>
+
+<h2>🔁 Round Trip Booking</h2>
+
+<form onsubmit="sendRoundTrip(event,this)">
+
+<input type="text" name="name"
+placeholder="Full Name" required>
+
+<input type="tel" name="mobile"
+placeholder="Mobile Number"
+maxlength="10" required>
+
+<input type="text" name="pickup"
+placeholder="Pickup Location" required>
+
+<input type="text" name="drop"
+placeholder="Destination" required>
+
+<label>Going Date</label>
+<input type="date" name="date" required>
+
+<label>Return Date</label>
+<input type="date" name="returnDate" required>
+
+<label>Pickup Time</label>
+<input type="time" name="time" required>
+
+<select name="vehicle" required>
+<option value="">Choose Vehicle</option>
+<option>Swift / Aura</option>
+<option>Ertiga</option>
+<option>Innova</option>
+<option>Innova Crysta</option>
+</select>
+
+<button type="submit">
+Book on WhatsApp
+</button>
+
+</form>
+
+</div>
+</div>
+
+
+<!-- AIRPORT PICKUP -->
+
+<div id="airportpickup" class="service-form">
+
+<div class="form-content">
+
+<span class="close-form"
+onclick="closeServiceForm('airportpickup')">
+&times;
+</span>
+
+<h2>✈️ Airport Pickup</h2>
+
+<form onsubmit="sendAirportPickup(event,this)">
+
+<input type="text" name="name"
+placeholder="Full Name" required>
+
+<input type="tel" name="mobile"
+placeholder="Mobile Number"
+maxlength="10" required>
+
+<input type="text" name="airport"
+placeholder="Airport Name" required>
+
+<input type="text" name="drop"
+placeholder="Drop Location" required>
+
+<input type="text" name="flight"
+placeholder="Flight Number (Optional)">
+
+<label>Pickup Date</label>
+<input type="date" name="date" required>
+
+<label>Pickup Time</label>
+<input type="time" name="time" required>
+
+<select name="vehicle" required>
+<option value="">Choose Vehicle</option>
+<option>Swift / Aura</option>
+<option>Ertiga</option>
+<option>Innova</option>
+<option>Innova Crysta</option>
+</select>
+
+<button type="submit">
+Book on WhatsApp
+</button>
+
+</form>
+
+</div>
+</div>
+
+
+<!-- AIRPORT DROP -->
+
+<div id="airportdrop" class="service-form">
+
+<div class="form-content">
+
+<span class="close-form"
+onclick="closeServiceForm('airportdrop')">
+&times;
+</span>
+
+<h2>🛬 Airport Drop</h2>
+
+<form onsubmit="sendAirportDrop(event,this)">
+
+<input type="text" name="name"
+placeholder="Full Name" required>
+
+<input type="tel" name="mobile"
+placeholder="Mobile Number"
+maxlength="10" required>
+
+<input type="text" name="pickup"
+placeholder="Pickup Location" required>
+
+<input type="text" name="airport"
+placeholder="Airport Name" required>
+
+<label>Journey Date</label>
+<input type="date" name="date" required>
+
+<label>Pickup Time</label>
+<input type="time" name="time" required>
+
+<select name="vehicle" required>
+<option value="">Choose Vehicle</option>
+<option>Swift / Aura</option>
+<option>Ertiga</option>
+<option>Innova</option>
+<option>Innova Crysta</option>
+</select>
+
+<button type="submit">
+Book on WhatsApp
+</button>
+
+</form>
+
+</div>
+</div>
 
 <footer>
 
