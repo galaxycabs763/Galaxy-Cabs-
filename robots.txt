@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://galaxycabs763.github.io/Galaxy-Cabs-/sitemap.xml
