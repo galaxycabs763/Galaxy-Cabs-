@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <url>
+    <loc>https://galaxycabs763.github.io/Galaxy-Cabs-/</loc>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://galaxycabs763.github.io/Galaxy-Cabs-/vehicles.html</loc>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://galaxycabs763.github.io/Galaxy-Cabs-/tour-packages.html</loc>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://galaxycabs763.github.io/Galaxy-Cabs-/booking.html</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://galaxycabs763.github.io/Galaxy-Cabs-/fare.html</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://galaxycabs763.github.io/Galaxy-Cabs-/contact.html</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://galaxycabs763.github.io/Galaxy-Cabs-/about.html</loc>
+    <priority>0.7</priority>
+  </url>
+
+</urlset>
