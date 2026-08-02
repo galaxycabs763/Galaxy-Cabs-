@@ -723,3 +723,16 @@ box-shadow:0 4px 10px rgba(0,0,0,0.2);
     font-size: 18px;
     color: #666;
 }
+/* Vehicles page cards only */
+.light-page .services .box {
+    background: #ffffff;
+}
+.vehicles-page .services .box,
+.about-page .services .box {
+    background: #ffffff;
+}
+.vehicles-page .services .box,
+.about-page .services .box,
+.contact-page .services .box {
+    background: #ffffff;
+}
