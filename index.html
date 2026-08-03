@@ -24,16 +24,28 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "TaxiService",
-  "name": "Galaxy Cabs",
-  "url": "https://galaxycabs763.github.io/Galaxy-Cabs-/",
-  "telephone": "+918082011814",
-  "areaServed": {
-    "@type": "City",
-    "name": "Kolhapur"
-  },
-  "description": "Galaxy Cabs provides car rental, cab and taxi services in Kolhapur including one way, round trip, airport pickup and tour packages.",
-  "priceRange": "₹₹"
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://galaxycabs763.github.io/Galaxy-Cabs-/#website",
+      "url": "https://galaxycabs763.github.io/Galaxy-Cabs-/",
+      "name": "Galaxy Cabs",
+      "alternateName": "Galaxy Cabs Kolhapur"
+    },
+    {
+      "@type": "TaxiService",
+      "@id": "https://galaxycabs763.github.io/Galaxy-Cabs-/#business",
+      "name": "Galaxy Cabs",
+      "url": "https://galaxycabs763.github.io/Galaxy-Cabs-/",
+      "telephone": "+918082011814",
+      "areaServed": {
+        "@type": "City",
+        "name": "Kolhapur"
+      },
+      "description": "Galaxy Cabs provides car rental, cab and taxi services in Kolhapur including one way, round trip, airport pickup and tour packages.",
+      "priceRange": "₹₹"
+    }
+  ]
 }
 </script>
 <link rel="icon" type="image/png" href="favicon.png">
